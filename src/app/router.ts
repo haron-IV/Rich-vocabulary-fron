@@ -1,5 +1,8 @@
-import { Home } from '../views'
+import { Home, ConfigureDictionary } from '../views'
 
-const router = [{ path: '/', component: Home }]
+const router = [
+  { path: '/home', component: Home },
+  { path: '/configure-dictionary', component: ConfigureDictionary },
+]
 
 export default router

@@ -1,12 +1,14 @@
-import { DefaultTheme } from 'styled-components'
+import { Theme, createMuiTheme } from '@material-ui/core'
+import zIndex from './zIndex'
+import typography from './typography'
+import palette from './palette'
+import overrides from './overrides'
 
-const theme: DefaultTheme = {
-  borderRadius: 4,
+const theme: Theme = createMuiTheme({
+  zIndex,
+  palette,
+  typography,
+  overrides,
+})
 
-  colors: {
-    main: 'cyan',
-    secondary: 'magenta',
-  },
-}
-
-export { theme }
+export default theme
