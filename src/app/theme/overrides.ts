@@ -5,8 +5,9 @@ const overrides: Overrides = {
     '@global': {
       '#root': {
         minHeight: '100vh',
-        maxHeight: '100vh',
+        maxWidth: '100vw',
         display: 'flex',
+        overflow: 'hidden',
         flexDirection: 'column',
       },
     },
