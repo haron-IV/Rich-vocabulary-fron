@@ -1,35 +1,20 @@
-import { Box, Grid, Typography } from '@material-ui/core'
-import { RoundedButton } from 'shared/components'
+import { Box } from '@material-ui/core'
+import { useState } from 'react'
+import { AddLanguage, TargetLanguageSelection } from './components'
 
 const ConfigureDictionary = () => {
+  const [configurationStep, setConfigurationStep] = useState(1)
+
   return (
     <Box mt="12%">
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        direction="column"
-        spacing={10}
-      >
-        <Grid item xs={12}>
-          <Typography variant="h1" align="center">
-            Add your target language
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <RoundedButton
-            variant="contained"
-            color="secondary"
-            size="large"
-            width={400}
-            height={100}
-          >
-            <Typography variant="h4" align="center">
-              <Box fontWeight="500">Add Language</Box>
-            </Typography>
-          </RoundedButton>
-        </Grid>
-      </Grid>
+      {() => {
+        switch (configurationStep) {
+          case 0:
+            return <AddLanguage />
+          case 1:
+            return <TargetLanguageSelection />
+        }
+      }}
     </Box>
   )
 }

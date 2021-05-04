@@ -15,6 +15,9 @@ const typography: TypographyOptions = {
     // '"Segoe UI Emoji"',
     // '"Segoe UI Symbol"',
   ].join(','),
+  allVariants: {
+    color: palette.text.primary,
+  },
   h1: {
     color: palette.primary.contrastText,
     fontSize: '5rem',

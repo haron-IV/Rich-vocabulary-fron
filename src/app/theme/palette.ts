@@ -15,6 +15,9 @@ const palette: PaletteOptions = {
     dark: '#F5D9AA',
     contrastText: '#FFFFFF',
   },
+  text: {
+    primary: '#FFFFFF',
+  },
   // background: {
   //   default: '',
   //   paper: '#fff',
