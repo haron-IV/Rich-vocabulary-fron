@@ -1,15 +1,18 @@
-import { Select, Typography } from '@material-ui/core'
-import { WomanHi } from 'shared/icons'
+import { Typography } from '@material-ui/core'
+import SelectLanguage from '../SelectLanguage'
+import { SelectionBox, StyledContainer } from './TargetLanguageSelection.style'
 
 const TargetLanguageSelection = () => {
   return (
-    <div>
-      <Typography variant="h3">
-        Select your target language that you want to learn
-        <WomanHi />
-        <Select />
-      </Typography>
-    </div>
+    <StyledContainer maxWidth="md">
+      <SelectionBox>
+        <Typography variant="h4" color="inherit" align="center">
+          Select your target language that you want to learn
+        </Typography>
+
+        <SelectLanguage />
+      </SelectionBox>
+    </StyledContainer>
   )
 }
 
