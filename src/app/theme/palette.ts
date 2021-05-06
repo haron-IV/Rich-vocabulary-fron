@@ -18,10 +18,10 @@ const palette: PaletteOptions = {
   text: {
     primary: '#FFFFFF',
   },
-  // background: {
-  //   default: '',
-  //   paper: '#fff',
-  // },
+  background: {
+    default: '#414D88',
+    paper: '#fff',
+  },
   // info: {
   //   light: '',
   //   main: '',
