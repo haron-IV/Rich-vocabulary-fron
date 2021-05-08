@@ -1,5 +1,5 @@
 import { Box, Grid } from '@material-ui/core'
-import { WomanHi } from 'shared/icons'
+import { Translation, WomanHi, Arrow } from 'shared/icons'
 import { MenuList, StyledSelect } from './SelectLanguage.style'
 
 const languages = ['English', 'Polish', 'Spanish', 'French', 'German']
@@ -21,6 +21,8 @@ const SelectLanguage = () => {
             transformOrigin: { vertical: 'top', horizontal: 'left' },
             getContentAnchorEl: null,
           }}
+          startAdornment={<Translation />}
+          IconComponent={Arrow}
         >
           <option value="placeholder" style={{ display: 'none' }}>
             Select language

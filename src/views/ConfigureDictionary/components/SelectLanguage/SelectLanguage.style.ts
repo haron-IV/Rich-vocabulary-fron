@@ -14,6 +14,7 @@ export const MenuList = makeStyles(theme => ({
   menu: {
     fontWeight: theme.typography.fontWeightBold,
     backgroundColor: theme.palette.primary.dark,
+    // width: '100%', // TODO: add icons width
     '& option': {
       height: theme.spacing(4.5),
       display: 'flex',
@@ -23,5 +24,8 @@ export const MenuList = makeStyles(theme => ({
     '& option:nth-child(even)': {
       backgroundColor: theme.palette.background.default,
     },
+    // '& option[aria-selected="true"]': {
+    //   backgroundColor: 'red',
+    // }, // not working still blue
   },
 }))

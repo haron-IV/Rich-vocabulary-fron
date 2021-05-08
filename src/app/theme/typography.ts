@@ -19,6 +19,9 @@ const typography: TypographyOptions = {
   allVariants: {
     color: palette.text.primary,
   },
+  body1: {
+    fontSize: '1rem',
+  },
   h1: {
     color: palette.primary.contrastText,
     fontSize: '5rem',

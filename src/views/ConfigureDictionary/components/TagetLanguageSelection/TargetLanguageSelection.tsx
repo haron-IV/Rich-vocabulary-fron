@@ -1,4 +1,5 @@
 import { Typography } from '@material-ui/core'
+import Configuration from '../Configuration'
 import SelectLanguage from '../SelectLanguage'
 import { SelectionBox, StyledContainer } from './TargetLanguageSelection.style'
 
@@ -11,6 +12,7 @@ const TargetLanguageSelection = () => {
         </Typography>
 
         <SelectLanguage />
+        <Configuration />
       </SelectionBox>
     </StyledContainer>
   )
