@@ -6,9 +6,16 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core'
+import { useHistory } from 'react-router'
 import { RoundedButton } from 'shared/components'
 
 const Configuration = () => {
+  const history = useHistory()
+  const createDictionary = () => {
+    //TODO: create dictionary
+    history.push('/home')
+  }
+
   return (
     <Box color="secondary" mt={4}>
       <Typography variant="h5" color="inherit" align="center">
@@ -65,6 +72,7 @@ const Configuration = () => {
           color="primary"
           width={80}
           height={30}
+          onClick={createDictionary}
         >
           Done
         </RoundedButton>

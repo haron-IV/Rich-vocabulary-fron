@@ -3,7 +3,14 @@ import Configuration from '../Configuration'
 import SelectLanguage from '../SelectLanguage'
 import { SelectionBox, StyledContainer } from './TargetLanguageSelection.style'
 
-const TargetLanguageSelection = () => {
+interface TargetLanguageSectionProps {
+  step: number
+  nextStep: () => void
+}
+const TargetLanguageSelection = ({
+  step,
+  nextStep,
+}: TargetLanguageSectionProps) => {
   return (
     <StyledContainer maxWidth="md">
       <SelectionBox>
@@ -11,8 +18,8 @@ const TargetLanguageSelection = () => {
           Select your target language that you want to learn
         </Typography>
 
-        <SelectLanguage />
-        <Configuration />
+        <SelectLanguage nextStep={nextStep} />
+        {step >= 2 && <Configuration />}
       </SelectionBox>
     </StyledContainer>
   )

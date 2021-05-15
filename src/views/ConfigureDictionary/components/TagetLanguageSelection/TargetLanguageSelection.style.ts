@@ -1,9 +1,9 @@
 import { Container, styled, Theme } from '@material-ui/core'
 
-export const StyledContainer = styled(Container)({
+export const StyledContainer = styled(Container)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
-})
+}))
 
 export const SelectionBox = styled('div')<Theme>(({ theme }) => ({
   backgroundColor: theme.palette.primary.contrastText,

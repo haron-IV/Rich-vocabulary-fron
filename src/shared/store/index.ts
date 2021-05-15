@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
+import configureDictionary from './ConfigureDictionary'
 
 export const store = configureStore({
   reducer: {
+    configureDictionary,
     //home: homeReducer
     //rest reducers
   },

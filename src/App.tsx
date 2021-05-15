@@ -27,7 +27,9 @@ function App() {
         <BrowserRouter>
           <Switch>
             {routes.map(route => (
-              <Route path={route.path}>{route.component()}</Route>
+              <Route path={route.path} key={route.path}>
+                {route.component()}
+              </Route>
             ))}
           </Switch>
         </BrowserRouter>
