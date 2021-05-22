@@ -1,10 +1,10 @@
-import { CssBaseline, styled, ThemeProvider } from '@material-ui/core'
+import { CssBaseline, styled, ThemeProvider, Theme } from '@material-ui/core'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { routes } from './app'
 import theme from './app/theme/theme'
 import BackgroundImg from './assets/img/Background.jpg'
 
-export const Background = styled('div')(({ theme }) => ({
+export const Background = styled('div')<Theme>(({ theme }) => ({
   position: 'absolute',
   left: 0,
   top: 0,

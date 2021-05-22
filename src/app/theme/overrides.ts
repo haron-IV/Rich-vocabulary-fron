@@ -10,6 +10,17 @@ const overrides: Overrides = {
         overflow: 'hidden',
         flexDirection: 'column',
       },
+      '*::-webkit-scrollbar': {
+        width: '0.4em',
+        backgroundColor: 'rgba(255, 255, 255, 0.03)',
+      },
+      '*::-webkit-scrollbar-track': {
+        '-webkit-box-shadow': 'inset 0 0 6px rgba(255,255,255,0.05)',
+      },
+      '*::-webkit-scrollbar-thumb': {
+        backgroundColor: 'rgba(0,0,0,.1)',
+        outline: '1px solid rgba(255, 255, 255, .5)',
+      },
     },
   },
 }
