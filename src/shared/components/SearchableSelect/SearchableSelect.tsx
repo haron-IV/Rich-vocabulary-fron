@@ -79,11 +79,11 @@ const SearchableSelect = ({
               <SelectListItem
                 itemHeight={itemHeight}
                 button
+                disableRipple
                 key={`listItem-${item}`}
+                onClick={() => handleOnSelect(item)}
               >
-                <Button fullWidth onClick={() => handleOnSelect(item)}>
-                  {item}
-                </Button>
+                <Button fullWidth>{item}</Button>
               </SelectListItem>
             ))}
         </SelectList>

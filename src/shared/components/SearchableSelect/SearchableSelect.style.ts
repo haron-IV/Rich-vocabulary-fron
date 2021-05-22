@@ -6,6 +6,7 @@ import {
   TextField,
   Theme,
 } from '@material-ui/core'
+import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'node:constants'
 
 interface SelectWrapperProps {
   maxHeight?: string | number
@@ -16,7 +17,7 @@ export const SelectWrapper = styled('div')<Theme, SelectWrapperProps>(
     maxHeight,
     overflow: 'hidden',
     position: 'relative',
-    padding: theme.spacing(1),
+    padding: theme.spacing(1, 0),
     width: '100%',
     borderRadius: 3,
   })
@@ -60,7 +61,6 @@ export const SelectList = styled(List)<Theme, SelectListProps>(
     padding: 0,
     transition: 'max-height linear 100ms',
     maxHeight: menuOpened ? maxHeight : 0,
-
     overflowY: 'auto',
     width: '100%',
   })
@@ -68,17 +68,22 @@ export const SelectList = styled(List)<Theme, SelectListProps>(
 
 interface SelectListItemProps extends SelectProps {}
 export const SelectListItem = styled(ListItem)<Theme, SelectListItemProps>(
-  ({ itemHeight }) => ({
+  ({ theme, itemHeight }) => ({
     height: itemHeight || '30px',
     width: '100%',
-    color: 'red',
-    '&::nth-child(even)': {
-      color: 'red',
+    padding: 0,
+    '&:nth-child(even)': {
+      backgroundColor: theme.palette.background.default,
+      margin: 0,
+    },
+    '& .MuiButton-root': {
+      padding: 0,
     },
     '& .MuiButton-label': {
       width: '100%',
       display: 'block',
       textAlign: 'left',
+      paddingLeft: theme.spacing(2),
     },
   })
 )
