@@ -6,7 +6,6 @@ import {
   TextField,
   Theme,
 } from '@material-ui/core'
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'node:constants'
 
 interface SelectWrapperProps {
   maxHeight?: string | number
@@ -57,7 +56,7 @@ interface SelectListProps extends ArrowProps {
   maxHeight?: string | number
 }
 export const SelectList = styled(List)<Theme, SelectListProps>(
-  ({ theme, menuOpened, maxHeight }) => ({
+  ({ menuOpened, maxHeight }) => ({
     padding: 0,
     transition: 'max-height linear 100ms',
     maxHeight: menuOpened ? maxHeight : 0,
@@ -88,12 +87,9 @@ export const SelectListItem = styled(ListItem)<Theme, SelectListItemProps>(
   })
 )
 
-interface SearchFieldProps extends Partial<ArrowProps> {}
-export const SearchField = styled(TextField)<Theme, SearchFieldProps>(
-  ({ theme, menuOpened }) => ({
-    zIndex: theme.zIndex.max,
-    position: 'absolute',
-    top: 0,
-    width: '70%',
-  })
-)
+export const SearchField = styled(TextField)(({ theme }) => ({
+  zIndex: theme.zIndex.max,
+  position: 'absolute',
+  top: 0,
+  width: '70%',
+}))

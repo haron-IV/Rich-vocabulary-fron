@@ -1,5 +1,5 @@
-import { Box, Grid } from '@material-ui/core'
 import { useState } from 'react'
+import { Box, Grid } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 import { SearchableSelect } from 'shared/components'
 import { useLanguageList } from 'shared/hooks'
@@ -23,7 +23,6 @@ const SelectLanguage = ({ nextStep }: SelectLanguageProps) => {
     <Box fontSize="50px" mt={5}>
       <Grid container justify="center">
         <WomanHi fontSize="inherit" />
-        {/* TODO: make searchable select */}
         <SearchableSelect
           startIcon={<Translation />}
           placeholder="Select language"
@@ -34,42 +33,6 @@ const SelectLanguage = ({ nextStep }: SelectLanguageProps) => {
           onSelect={handleLanguageSelect}
           value={selectedLanguage}
         />
-        {/* <StyledSelect
-          fullWidth
-          variant="outlined"
-          defaultValue="placeholder"
-          MenuProps={{
-            classes: { paper: classes.menu },
-            anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
-          }}
-          startAdornment={<Translation />}
-          IconComponent={Arrow}
-          onChange={e => handleLanguageSelect(e.target.value as string)}
-          // onFocus={() => setSearchActive(true)}
-          // onBlur={() => setSearchActive(false)}
-          onOpen={() => setSearchActive(true)}
-        >
-          <option value="placeholder" style={{ display: 'none' }}>
-            Select language
-          </option>
-          {languages.map(language => {
-            return (
-              language.includes(searchValue) && (
-                <option value={language} key={language}>
-                  {language}
-                </option>
-              )
-            )
-          })}
-        </StyledSelect> */}
-        {/* <StyledTextField
-          style={{ position: 'absolute' }}
-          onChange={e => setSearchValue(e.target.value)}
-          autoFocus
-          focused={searchActive}
-          variant="filled"
-          visible={true}
-        /> */}
       </Grid>
     </Box>
   )
