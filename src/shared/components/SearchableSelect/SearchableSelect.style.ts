@@ -56,11 +56,12 @@ interface SelectListProps extends ArrowProps {
   maxHeight?: string | number
 }
 export const SelectList = styled(List)<Theme, SelectListProps>(
-  ({ menuOpened, maxHeight }) => ({
+  ({ theme, menuOpened, maxHeight }) => ({
     padding: 0,
     transition: 'max-height linear 100ms',
     maxHeight: menuOpened ? maxHeight : 0,
-    overflowY: 'scroll',
+
+    overflowY: 'auto',
     width: '100%',
   })
 )
