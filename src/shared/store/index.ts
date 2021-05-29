@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import configureDictionary from './ConfigureDictionary'
+import database from './database'
 
 export const store = configureStore({
   reducer: {
     configureDictionary,
-    //home: homeReducer
+    database,
     //rest reducers
   },
 })

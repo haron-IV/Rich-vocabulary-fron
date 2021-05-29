@@ -6,13 +6,20 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { RoundedButton } from 'shared/components'
+import { selectors } from 'shared/store/ConfigureDictionary'
+import { init as initDatabase } from 'shared/store/database/database'
 
 const Configuration = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
+  const firstLanguage = useSelector(
+    selectors.getDictionaryConfiguration
+  ).language
   const createDictionary = () => {
-    //TODO: create dictionary
+    dispatch(initDatabase({ firstLanguage }))
     history.push('/home')
   }
 
