@@ -1,2 +1,2 @@
-export { initDatabase } from './database'
+export { initDatabase, checkIfDatabaseExist } from './database'
 export * from './database.types'

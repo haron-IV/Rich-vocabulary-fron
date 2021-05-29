@@ -26,9 +26,13 @@ function App() {
         <Background />
         <BrowserRouter>
           <Switch>
-            {routes.map(route => (
-              <Route path={route.path} key={route.path}>
-                {route.component()}
+            {routes.map(({ path, component }) => (
+              <Route
+                path={path}
+                key={path}
+                {...(path === '/' ? { exact: true } : {})}
+              >
+                {component()}
               </Route>
             ))}
           </Switch>
