@@ -6,11 +6,18 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core'
+import { Routes } from 'app/router'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { RoundedButton } from 'shared/components'
 import { selectors } from 'shared/store/ConfigureDictionary'
-import { init as initDatabase } from 'shared/store/database/database'
+import { selectors as databaseSelectors } from 'shared/store/database'
+import {
+  init as initDatabase,
+  isDatabaseExist,
+} from 'shared/store/database/database'
+import { RequestStatus } from 'shared/types'
 
 const Configuration = () => {
   const history = useHistory()
@@ -18,10 +25,17 @@ const Configuration = () => {
   const firstLanguage = useSelector(
     selectors.getDictionaryConfiguration
   ).language
+  const { data } = useSelector(databaseSelectors.getIsDatabaseExist)
+  const { requestStatus } = useSelector(databaseSelectors.getInitDatabase)
   const createDictionary = () => {
     dispatch(initDatabase({ firstLanguage }))
-    history.push('/home')
+    dispatch(isDatabaseExist())
   }
+
+  useEffect(() => {
+    if (data && requestStatus === RequestStatus.fulfilled)
+      history.push(Routes.home)
+  }, [data, history, requestStatus])
 
   return (
     <Box color="secondary" mt={4}>

@@ -1,3 +1,4 @@
+import { Routes } from 'app/router'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
@@ -17,7 +18,7 @@ const TestComponent = () => {
 
   useEffect(() => {
     if (requestStatus === RequestStatus.fulfilled && !data) {
-      history.push('/configure-dictionary')
+      history.push(Routes.configureDictionary)
     }
   }, [data, requestStatus, history])
   return (
