@@ -1,7 +1,5 @@
-import { TestComponent } from './components'
+import { ContentWrapper } from './components'
 
-const Home = () => {
-  return <TestComponent />
-}
+const Home = () => <ContentWrapper />
 
 export default Home
