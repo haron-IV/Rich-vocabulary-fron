@@ -1,11 +1,12 @@
-import { Container } from '@material-ui/core'
-import { Routes } from 'app/router'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
-import { selectors } from 'shared/store/database'
-import { isDatabaseExist } from 'shared/store/database/database'
+import { Container, Grid, Box } from '@material-ui/core'
+import { Routes } from 'app/router'
+import { selectors, isDatabaseExist } from 'shared/store/database'
 import { RequestStatus } from 'shared/types'
+import VerticalSection from '../VerticalSection'
+import DictionarySection from '../DictionarySection'
 
 const ContentWrapper = () => {
   const dispatch = useDispatch()
@@ -23,9 +24,17 @@ const ContentWrapper = () => {
   }, [data, requestStatus, history])
   return (
     <Container>
-      <div>
-        {requestStatus === RequestStatus.fulfilled && data && <h1>ELo</h1>}
-      </div>
+      <Box height="100vh" display="flex" alignItems="center">
+        {requestStatus === RequestStatus.fulfilled && data && (
+          <Grid container spacing={2}>
+            <VerticalSection title="Dictionary">
+              <DictionarySection />
+            </VerticalSection>
+            <VerticalSection title="Session"></VerticalSection>
+            <VerticalSection title="Collections"></VerticalSection>
+          </Grid>
+        )}
+      </Box>
     </Container>
   )
 }

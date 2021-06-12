@@ -9,6 +9,7 @@ const theme: Theme = createMuiTheme({
   palette,
   typography,
   overrides,
+  spacing: 5,
 })
 
 export default theme

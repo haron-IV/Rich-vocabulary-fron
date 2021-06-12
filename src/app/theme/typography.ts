@@ -26,6 +26,10 @@ const typography: TypographyOptions = {
     color: palette.primary.contrastText,
     fontSize: '5rem',
   },
+  h3: {
+    fontSize: '2.5rem',
+    fontWeight: 500,
+  },
 }
 
 export default typography

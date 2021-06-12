@@ -41,7 +41,6 @@ export const init = createAsyncThunk(
   'database/init',
   async (payload: InitDatabaseRequest, thunkApi) => {
     try {
-      console.log(payload)
       const response = await initDatabase(payload)
       return response.data
     } catch (err) {
