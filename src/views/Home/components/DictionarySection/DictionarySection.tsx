@@ -1,5 +1,7 @@
 import { Box, Grid, styled } from '@material-ui/core'
+import { useEffect, useState } from 'react'
 import { RoundedButton } from 'shared/components'
+import { getDictionary, WordAPI } from 'shared/services/dictionary'
 import Word from '../Word'
 
 const WordsWrapper = styled(Grid)({
@@ -8,6 +10,15 @@ const WordsWrapper = styled(Grid)({
 })
 
 const DictionarySection = () => {
+  const [dictionary, setDictionary] = useState<WordAPI[]>()
+
+  useEffect(() => {
+    ;(async () => {
+      const dictionary = await getDictionary()
+      setDictionary(dictionary)
+    })()
+  }, [])
+
   return (
     <>
       <RoundedButton
@@ -21,8 +32,12 @@ const DictionarySection = () => {
 
       <WordsWrapper item xs={12}>
         <Box mt={5} mx={5} display="flex" flexWrap="wrap">
-          {new Array(100).fill('').map(el => (
-            <Word id={el} targetLanguage="green" nativeLanguage="zielony" />
+          {dictionary?.map(({ id, firstLanguage, secondLanguage }) => (
+            <Word
+              id={id}
+              targetLanguage={firstLanguage}
+              nativeLanguage={secondLanguage}
+            />
           ))}
         </Box>
       </WordsWrapper>
