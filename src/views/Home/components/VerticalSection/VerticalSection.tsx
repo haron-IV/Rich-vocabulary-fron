@@ -14,6 +14,10 @@ const VerticalSectionWrapper = styled('div')(({ theme }) => ({
   flexDirection: 'column',
 }))
 
+const ContentWrapper = styled(Grid)(({ theme }) => ({
+  overflow: 'hidden',
+}))
+
 interface VerticalSectionProps {
   title: string
 }
@@ -24,18 +28,15 @@ const VerticalSection = ({
   return (
     <Grid item xs={4}>
       <VerticalSectionWrapper>
-        <Grid container>
-          <Grid item xs={12}>
-            <Box my={8}>
-              <Typography variant="h3" align="center">
-                {title}
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid container item xs={12} justify="center">
-            {children}
-          </Grid>
-        </Grid>
+        <Box my={8}>
+          <Typography variant="h3" align="center">
+            {title}
+          </Typography>
+        </Box>
+
+        <ContentWrapper container item xs={12} justify="center">
+          {children}
+        </ContentWrapper>
       </VerticalSectionWrapper>
     </Grid>
   )

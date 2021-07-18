@@ -1,10 +1,15 @@
-import { Box } from '@material-ui/core'
+import { Box, Grid, styled } from '@material-ui/core'
 import { RoundedButton } from 'shared/components'
 import Word from '../Word'
 
+const WordsWrapper = styled(Grid)({
+  overflow: 'hidden scroll',
+  height: '95%',
+})
+
 const DictionarySection = () => {
   return (
-    <div>
+    <>
       <RoundedButton
         variant="contained"
         color="secondary"
@@ -13,10 +18,15 @@ const DictionarySection = () => {
       >
         Add word
       </RoundedButton>
-      <Box mt={5}>
-        <Word />
-      </Box>
-    </div>
+
+      <WordsWrapper item xs={12}>
+        <Box mt={5} mx={5} display="flex" flexWrap="wrap">
+          {new Array(100).fill('').map(el => (
+            <Word id={el} targetLanguage="green" nativeLanguage="zielony" />
+          ))}
+        </Box>
+      </WordsWrapper>
+    </>
   )
 }
 
