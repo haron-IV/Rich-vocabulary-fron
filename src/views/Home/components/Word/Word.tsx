@@ -1,8 +1,8 @@
+import { ButtonBase } from '@material-ui/core'
 import { Button, styled } from '@material-ui/core'
-import theme from 'app/theme/theme'
 import { Close } from 'shared/icons'
 
-const StyledWord = styled('div')(({ theme }) => ({
+const StyledWord = styled(ButtonBase)(({ theme }) => ({
   backgroundColor: theme.palette.primary.dark,
   textAlign: 'center',
   padding: theme.spacing(2.5, 2),
@@ -26,10 +26,11 @@ interface WordProps {
   id: string
   targetLanguage: string
   nativeLanguage: string
+  onClick: () => void
 }
-const Word = ({ id, targetLanguage, nativeLanguage }: WordProps) => {
+const Word = ({ id, targetLanguage, nativeLanguage, onClick }: WordProps) => {
   return (
-    <StyledWord>
+    <StyledWord onClick={onClick}>
       <div>
         {targetLanguage} - {nativeLanguage}
       </div>
